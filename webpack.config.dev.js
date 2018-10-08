@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const fs = require('fs')
 const srcRoot = path.resolve(__dirname, './src')
 const devPath = path.resolve(__dirname, 'dev')
@@ -30,9 +31,13 @@ module.exports = {
   // 加载器配置
   module: {
     rules: [
+      { test: /\.(js|jsx)$/, use: [{ loader: 'babel-loader' }], include: srcRoot },
       { test: /\.css$/, use: ['style-loader', 'css-loader'], include: srcRoot },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'], include: srcRoot },
       { test: /\.(png|jpg|jpeg)$/, use: ['url-loader?limit=8192'], include: srcRoot },
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin()
+  ]
 }
