@@ -1,0 +1,25 @@
+{
+  "name": "react-meituan-waimai",
+  "version": "1.0.0",
+  "description": "a react single page app ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ihtml/react-meituan-waimai.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "IFE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ihtml/react-meituan-waimai/issues"
+  },
+  "homepage": "https://github.com/Ihtml/react-meituan-waimai#readme",
+  "dependencies": {
+    "webpack": "^4.3.0"
+  }
+}

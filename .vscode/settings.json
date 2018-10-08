@@ -1,0 +1,8 @@
+{
+  "workbench.colorTheme": "One Dark Pro",
+  "window.zoomLevel": 0,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true
+}
