@@ -7,7 +7,7 @@ const pageDir = path.resolve(srcRoot, 'pages')
 const mainFile = 'index.js'
 
 // html根据entry定制化
-function getHtmlArray (entryMap) {
+function getHtmlArray(entryMap) {
   let htmlArray = []
   Object.keys(entryMap).forEach((key) => {
     let fullPathName = path.resolve(pageDir, key)
@@ -26,7 +26,7 @@ function getHtmlArray (entryMap) {
   return htmlArray
 }
 // 寻找pages下的每个文件夹里的index.js作为入口文件
-function getEntry () {
+function getEntry() {
   let entryMap = {}
   fs.readdirSync(pageDir).forEach((pathname) => {
     let fullPathName = path.resolve(pageDir, pathname)
@@ -46,6 +46,10 @@ const htmlArray = getHtmlArray(entryMap)
 
 module.exports = {
   mode: 'development',
+  devServer: {
+    contentBase: devPath,
+    hot: true
+  },
   // 多入口
   entry: entryMap,
   output: {
