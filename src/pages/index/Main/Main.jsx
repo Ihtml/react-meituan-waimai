@@ -1,15 +1,26 @@
-import { React, Component } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { addTodo } from '../actions/tabAction'
 
 class Main extends Component {
   constructor(props) {
     super(props)
   }
-  render () {
+  render() {
     return (
-      <div>Main Page</div>
+      <div onClick={() => { this.props.handleClick() }}>Main Page, num: {this.props.num}</div>
     )
   }
 }
 
-export default connect(null, null)(Main)
+const mapState = (state) => ({
+  num: state.tabReducer.num
+})
+const mapDispatch = (dispatch) => ({
+  handleClick() {
+    const action = addTodo({ num: 10 })
+    dispatch(action)
+  }
+})
+
+export default connect(mapState, mapDispatch)(Main)
