@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions/tabAction'
+import BottomBar from '../BottomBar/BottomBar'
 
 class Main extends Component {
   constructor(props) {
@@ -8,7 +9,10 @@ class Main extends Component {
   }
   render() {
     return (
-      <div onClick={() => { this.props.handleClick() }}>Main Page, num: {this.props.num}</div>
+      <div>
+        <div onClick={() => { this.props.handleClick() }}>Main Page, num: {this.props.num}</div>
+        <BottomBar />
+      </div>
     )
   }
 }
