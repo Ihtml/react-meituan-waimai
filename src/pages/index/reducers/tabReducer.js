@@ -1,7 +1,22 @@
 import { ADD_TODO } from '../actions/actionTypes'
+import { TABKEY } from '../config.js';
 
 const initState = {
-  num: 0
+  tabs: [
+    {
+      name: '首页',
+      key: TABKEY.home
+    },
+    {
+      name: '订单',
+      key: TABKEY.order
+    },
+    {
+      name: '我的',
+      key: TABKEY.my
+    }
+  ],
+  activeKey: TABKEY.my
 }
 
 const addNum = (state, action) => {
