@@ -17,9 +17,11 @@ class BottomBar extends React.Component {
     })
   }
   render() {
-    <div className="bottom-bar">
-      {this.renderItems()}
-    </div>
+    return (
+      <div className="bottom-bar">
+        {this.renderItems()}
+      </div>
+    )
   }
 }
 

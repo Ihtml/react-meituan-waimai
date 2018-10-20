@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const fs = require('fs')
@@ -65,5 +66,7 @@ module.exports = {
       { test: /\.(png|jpg|jpeg)$/, use: ['url-loader?limit=8192'], include: srcRoot },
     ]
   },
-  plugins: [].concat(htmlArray)
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ].concat(htmlArray)
 }
