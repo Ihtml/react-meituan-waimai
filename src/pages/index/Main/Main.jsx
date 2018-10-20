@@ -10,7 +10,6 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <div onClick={() => { this.props.handleClick() }}>Main Page, num: {this.props.num}</div>
         <BottomBar></BottomBar>
       </div>
     )
@@ -18,13 +17,8 @@ class Main extends Component {
 }
 
 const mapState = (state) => ({
-  num: state.tabReducer.num
 })
 const mapDispatch = (dispatch) => ({
-  handleClick() {
-    const action = addTodo({ num: 10 })
-    dispatch(action)
-  }
 })
 
 export default connect(mapState, mapDispatch)(Main)
