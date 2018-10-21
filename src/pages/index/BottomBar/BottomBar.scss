@@ -21,20 +21,38 @@
           height: 25px;
           background-size: cover;
       }
+      &.active {
+        color: #000;
+      }
       &.my {
           .tab-icon {
               background-image: url('./img/myIcon.png');
           }
+      }
+      &.my.active {
+        .tab-icon {
+            background-image: url('./img/myIconActive.png');
+        }
       }
       &.order {
           .tab-icon {
               background-image: url('./img/orderIcon.png');
           }
       }
+      &.order.active {
+        .tab-icon {
+            background-image: url('./img/orderIconActive.png');
+        }
+      }
       &.home {
           .tab-icon {
               background-image: url('./img/homeIcon.png');
           }
+      }
+      &.home.active {
+        .tab-icon {
+            background-image: url('./img/homeIconActive.png');
+        }
       }
   }
 }

@@ -1,7 +1,8 @@
-import { ADD_TODO } from './actionTypes'
+import { CHANGE_TAB } from './actionTypes'
 
-export const addTodo = (obj) => ({
-  type: ADD_TODO,
-  obj: obj
-})
-
+export const changeTab = (obj) => {
+  return {
+    type: CHANGE_TAB,
+    obj: obj
+  }
+}

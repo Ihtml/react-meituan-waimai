@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions/actionTypes'
+import { CHANGE_TAB } from '../actions/actionTypes'
 import { TABKEY } from '../config.js';
 
 const initState = {
@@ -16,20 +16,18 @@ const initState = {
       key: TABKEY.my
     }
   ],
-  activeKey: TABKEY.my
+  activeKey: TABKEY.home
 }
 
-const addNum = (state, action) => {
-  let newState = JSON.parse(JSON.stringify(state))
-  newState.num = state.num + action.obj.num
-  return newState
-}
+const changeTab = (state, action) => {
+  let activeKey = action.obj.activeKey;
+  return { ...state, activeKey: activeKey };
+};
+
 const TabReducer = (state = initState, action) => {
   switch (action.type) {
-    case ADD_TODO:
-      return addNum(state, action)
-    default:
-      return state
+    case CHANGE_TAB: return changeTab(state, action);
+    default: return state;
   }
 }
 
