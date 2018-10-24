@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions/tabAction'
 import BottomBar from '../BottomBar/BottomBar.jsx'
 
 class Main extends Component {
@@ -16,9 +15,9 @@ class Main extends Component {
   }
 }
 
-const mapState = (state) => ({
+const mapState = () => ({
 })
-const mapDispatch = (dispatch) => ({
+const mapDispatch = () => ({
 })
 
 export default connect(mapState, mapDispatch)(Main)
