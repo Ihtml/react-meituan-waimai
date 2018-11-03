@@ -1,9 +1,9 @@
 import './Category.scss'
 
 import React from 'react'
-import axios from 'axios'
 
 import { getHeaderData } from '../../actions/categoryActions'
+import { connect } from 'react-redux';
 
 /**
  * @constructor <Category />
@@ -17,11 +17,14 @@ class Category extends React.Component {
   }
 
   fetchData() {
-    axios({
-      method: 'get',
-      url: ''
-    }).then((res) => {
-      this.props.dispatch(getHeaderData(res.data))
-    })
+    this.props.dispatch(getHeaderData())
+  }
+
+  render() {
+    return (
+      <div></div>
+    )
   }
 }
+
+export default connect(null, null)(Category)
