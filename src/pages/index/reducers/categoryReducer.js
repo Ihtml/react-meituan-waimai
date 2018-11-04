@@ -4,7 +4,7 @@ const initState = {
   items: []
 }
 
-const getCategory = (staet, action) => {
+const getCategory = (state, action) => {
   return { ...state, items: action.obj.data }
 }
 

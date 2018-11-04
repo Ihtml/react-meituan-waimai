@@ -1,8 +1,13 @@
 import { HEAD_DATA } from "./actionTypes";
+import axios from 'axios'
 
-export const getHeaderData = (obj) => {
-  return {
+export const getHeaderData = () => async (dispatch) => {
+  let resp = await axios({
+    method: 'get',
+    url: './json/head.json'
+  })
+  dispatch({
     type: HEAD_DATA,
-    obj: obj
-  }
+    obj: resp.data
+  })
 }
