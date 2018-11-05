@@ -17,7 +17,7 @@ class Category extends React.Component {
   }
 
   fetchData() {
-    this.props.getHeadData()
+    this.props.getHeaderData()
   }
   renderItems() {
     let items = this.props.items
@@ -25,8 +25,8 @@ class Category extends React.Component {
 
     return _items.splice(0, 8).map((item, index) => {
       return (
-        <div key={index} className="category-item" onClick="{this.goCategory}">
-          <img className='item-cion' src='{item.url}' />
+        <div key={index} className="category-item" >
+          <img className='item-cion' src={item.url} />
           <p className='item-name'>{item.name}</p>
         </div>
       )
@@ -44,13 +44,12 @@ class Category extends React.Component {
 }
 
 const mapState = (state) => ({
-
   items: state.categoryReducer.items
 })
-const mapDispatch = (dispatch) => ({
-  getHeadData() {
+const mapDispacth = (dispatch) => ({
+  getHeaderData() {
     dispatch(getHeaderData())
   }
 })
 
-export default connect(mapDispatch, mapState)(Category)
+export default connect(mapState, mapDispacth)(Category)

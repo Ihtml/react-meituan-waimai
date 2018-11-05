@@ -1,7 +1,9 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 
 import Reducer from './reducers/main'
-const store = createStore(Reducer)
+import thunk from 'redux-thunk'
+
+const store = createStore(Reducer, applyMiddleware(thunk))
 
 if (module.hot) {
   // 一旦reducer发生改变，重新获取reducer
