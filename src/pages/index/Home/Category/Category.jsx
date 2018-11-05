@@ -26,7 +26,7 @@ class Category extends React.Component {
     return _items.splice(0, 8).map((item, index) => {
       return (
         <div key={index} className="category-item" >
-          <img className='item-cion' src={item.url} />
+          <img className='item-icon' src={item.url} />
           <p className='item-name'>{item.name}</p>
         </div>
       )
