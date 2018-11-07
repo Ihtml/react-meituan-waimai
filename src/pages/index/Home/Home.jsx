@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from './Header/Header.jsx';
 import Category from './Category/Category.jsx';
+import ContentList from './ContentList/ContentList';
 
 /**
  * @constructor <Home />
@@ -14,6 +15,7 @@ class Home extends React.Component {
       <div>
         <Header />
         <Category />
+        <ContentList />
       </div>
     );
   }
