@@ -3,7 +3,7 @@ import './ContentList.scss';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ListItem from 'component/ListItem/ListItem';
+import ListItem from '../../../../component/ListItem/ListItem';
 
 /**
  * @constructor <ContentList />
