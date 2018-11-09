@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ListItem from '../../../../component/ListItem/ListItem';
+import { getListData } from '../../actions/contentListAction';
 
 /**
  * @constructor <ContentList />
@@ -12,10 +13,17 @@ import ListItem from '../../../../component/ListItem/ListItem';
 
 class ContentList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.page = 0
+    // 请求第一道数据
+    this.fetchData(this.page)
+    this.state = {
+      isend: false
+    }
   }
-
-
+  fetchData(page) {
+    this.props.dispatch(getListData(page))
+  }
 
   renderItems() {
     let list = this.props.list;
@@ -27,7 +35,12 @@ class ContentList extends React.Component {
   render() {
     return (
       <div className="list-content">
-
+        <h4 className="list-title">
+          <span className="title-line"></span>
+          <span>附近商家</span>
+          <span className="title-line"></span>
+        </h4>
+        {this.renderItems()}
       </div>
     );
   }
