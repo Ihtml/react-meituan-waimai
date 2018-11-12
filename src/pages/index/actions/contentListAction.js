@@ -4,7 +4,7 @@ import axios from 'axios'
 export const getListData = (page) => (dispatch) => {
   axios({
     method: 'get',
-    url: './json/homelist.json'
+    url: '/json/homelist.json'
   }).then((resp) => {
     window.setTimeout(() => {
       dispatch({
