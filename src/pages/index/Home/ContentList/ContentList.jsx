@@ -22,6 +22,18 @@ class ContentList extends React.Component {
       isend: false
     }
   }
+
+  onLoadPage() {
+    this.page++;
+    // 最多滚动3页3次
+    if (this.page > 3) {
+      this.setState({
+        isend: true
+      });
+    } else {
+      this.fetchData(this.page);
+    }
+  }
   fetchData(page) {
     this.props.dispatch(getListData(page))
   }
