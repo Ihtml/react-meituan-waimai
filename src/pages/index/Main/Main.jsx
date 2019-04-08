@@ -3,7 +3,8 @@ import '@/component/common.scss'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import BottomBar from '../BottomBar/BottomBar.jsx'
-import Home from '../Home/Home'
+// import Home from '../Home/Home'
+import Order from '../Order/Order'
 
 class Main extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Home></Home>
+        {/* <Home></Home> */}
+        <Order></Order>
         <BottomBar></BottomBar>
       </div>
     )
