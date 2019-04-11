@@ -1,10 +1,10 @@
-import 'component/common.scss';
+import '@/component/common.scss';
 import './Main.scss';
 
 
 import React from 'react';
 
-import NavHeader from 'component/NavHeader/NavHeader.jsx';
+import NavHeader from '@/component/NavHeader/NavHeader.jsx';
 
 
 class Main extends React.Component {
