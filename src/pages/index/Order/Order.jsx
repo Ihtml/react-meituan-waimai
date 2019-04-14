@@ -3,7 +3,7 @@ import React from 'react'
 
 import { connect } from 'react-redux';
 import { getOrderData } from '../actions/orderAction';
-import ScrollView from 'component/ScrollView/ScrollView.jsx';
+import ScrollView from '@/component/ScrollView/ScrollView.jsx';
 
 import ListItem from './ListItem/ListItem';
 
