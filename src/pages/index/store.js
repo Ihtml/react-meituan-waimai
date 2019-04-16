@@ -3,7 +3,20 @@ import { createStore, applyMiddleware } from 'redux'
 import Reducer from './reducers/main'
 import thunk from 'redux-thunk'
 
-const store = createStore(Reducer, applyMiddleware(thunk))
+import createHistory from 'history/createHashHistory'
+
+import { routerMiddleware } from 'react-router-redux'
+
+// 创建基于hash的history
+const history = createHistory();
+
+// 创建初始化tab
+history.replace('home');
+
+// 创建history的Middleware
+const historyMiddl = routerMiddleware(history);
+
+const store = createStore(Reducer, applyMiddleware(thunk, historyMiddl));
 
 if (module.hot) {
   // 一旦reducer发生改变，重新获取reducer

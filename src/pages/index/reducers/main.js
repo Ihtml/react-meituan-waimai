@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux';
 import tabReducer from './tabReducer'
 import categoryReducer from './categoryReducer'
 import contentListReducer from './contentListReducer.js'
@@ -10,7 +11,8 @@ const reducers = combineReducers({
   tabReducer,
   categoryReducer,
   contentListReducer,
-  orderReducer
+  orderReducer,
+  router: routerReducer
 })
 
 export default reducers
