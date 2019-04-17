@@ -1,6 +1,7 @@
 import './BottomBar.scss'
 import React from 'react'
 import { connect } from 'react-redux'
+import { NavLink, withRouter } from 'react-router-dom'
 import { changeTab } from '../actions/tabAction'
 
 class BottomBar extends React.Component {
@@ -17,15 +18,19 @@ class BottomBar extends React.Component {
 
     return tabs.map((item, index) => {
       let cls = item.key + ' btn-item'
-      if (item.key === this.props.activeKey) {
-        cls += ' active'
-      }
+      // if (item.key === this.props.activeKey) {
+      //   cls += ' active'
+      // }
       let name = item.name
       return (
-        <div key={index} className={cls} onClick={() => this.changeTab(item)}>
+        // <div key={index} className={cls} onClick={() => this.changeTab(item)}>
+        //   <div className="tab-icon"></div>
+        //   <div className="btn-name">{name}</div>
+        // </div>
+        <NavLink key={index} className={cls} replace={true} to={"/" + item.key} activeClassName="active" onClick={() => this.changeTab(item)}>
           <div className="tab-icon"></div>
           <div className="btn-name">{name}</div>
-        </div>
+        </NavLink>
       )
     })
   }
@@ -42,4 +47,4 @@ const mapState = (state) => ({
   tabs: state.tabReducer.tabs,
   activeKey: state.tabReducer.activeKey
 })
-export default connect(mapState, null)(BottomBar)
+export default withRouter(connect(mapState, null)(BottomBar))
