@@ -26,4 +26,7 @@ if (module.hot) {
   })
 }
 
-export default store
+module.exports = {
+  store,
+  history
+}

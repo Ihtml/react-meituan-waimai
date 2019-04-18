@@ -2,16 +2,17 @@ import './BottomBar.scss'
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink, withRouter } from 'react-router-dom'
-import { changeTab } from '../actions/tabAction'
+// import { changeTab } from '../actions/tabAction'
 
 class BottomBar extends React.Component {
   constructor(props) {
     super(props)
   }
   changeTab(item) {
-    this.props.dispatch(changeTab({
-      activeKey: item.key
-    }))
+    this.props.history.replace(item.key);
+    // this.props.dispatch(changeTab({
+    //   activeKey: item.key
+    // }))
   }
   renderItems() {
     let tabs = this.props.tabs
