@@ -14,9 +14,34 @@ class Header extends React.Component {
   fetchData() {
     this.props.dispatch(getFilterData());
   }
+  /**
+   * 渲染顶部默认tab
+   */
+  renderTabs() {
+    let tabs = this.props.tabs;
+    let array = []
+
+    for (const key in tabs) {
+      let item = tabs[key]
+      let cls = item.key + ' item'
+      if (item.key === this.props.activeKey && !this.props.closePanel) {
+        cls += ' current'
+      }
+      array.push(
+        <div className={cls} key={item.key} onClick={() => { this.changeTab(item.key) }}>
+          {item.text}
+        </div>
+      )
+    }
+
+    return array
+  }
   render() {
     return (
       <div className="header">
+        <div className="header-top">
+          {this.renderTabs()}
+        </div>
       </div>
     )
   }
