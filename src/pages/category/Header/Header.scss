@@ -13,4 +13,18 @@
     background-color: #fff;
     z-index: 4;
   }
+
+  .panel {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: px2rem(105px);
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    &.show {
+        display: block;
+    }
+  }
 }

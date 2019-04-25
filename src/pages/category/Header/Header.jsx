@@ -36,11 +36,51 @@ class Header extends React.Component {
 
     return array
   }
+  /**
+   * 渲染过滤面板
+   */
+  renderContent() {
+    let tabs = this.props.tabs;
+    let array = [];
+    for (let key in tabs) {
+      let item = tabs[key];
+      let cls = item.key + '-panel';
+      if (item.key === this.props.activeKey) {
+        cls += ' current';
+      }
+
+      if (item.key === TABKEY.cate) {
+        array.push(
+          <ul key={item.key} className={cls}>
+            {this.renderCateContent()}
+          </ul>
+        );
+      } else if (item.key === TABKEY.type) {
+        array.push(
+          <ul key={item.key} className={cls}>
+            {this.renderTypeContent()}
+          </ul>
+        );
+      } else if (item.key === TABKEY.filter) {
+        array.push(
+          <ul key={item.key} className={cls}>
+            {this.renderFilterContent()}
+          </ul>
+        );
+      }
+    }
+    return array;
+  }
   render() {
     return (
       <div className="header">
         <div className="header-top">
           {this.renderTabs()}
+        </div>
+        <div className={cls}>
+          <div className="panel-inner">
+            {this.renderContent()}
+          </div>
         </div>
       </div>
     )
