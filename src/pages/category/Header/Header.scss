@@ -26,5 +26,38 @@
     &.show {
         display: block;
     }
+    .panel-inner {
+      height: px2rem(300px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling:touch;
+      background-color: #fff;
+      > ul {
+          display: none;
+          background-color: #fff;
+          &.current {
+              display: block;
+          }
+      }
+    }
+    .item-title {
+      position: relative;
+      font-size: px2rem(12px);
+      height: px2rem(30px);
+      background-color: #efefef;
+      line-height: px2rem(30px);
+      color: #666;
+      padding-left: px2rem(13px);
+      &:before {
+          content: '';
+          position: absolute;
+          display: block;
+          margin-top: px2rem(8px);
+          margin-left: px2rem(-13px);
+          width: px2rem(2px);
+          height: px2rem(16px);
+          background-color: #ffd161;
+      }
+  }
   }
 }

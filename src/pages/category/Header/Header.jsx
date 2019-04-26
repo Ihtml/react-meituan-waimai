@@ -15,6 +15,20 @@ class Header extends React.Component {
     this.props.dispatch(getFilterData());
   }
   /**
+   * 点击切换tab
+   */
+  changeTab(key) {
+    let closePanel = false;
+    // 如果前后点击的是同一个tab 就关闭panel
+    if (this.props.activeKey === key && !this.props.closePanel) {
+      closePanel = true;
+    }
+    this.props.dispatch(changeTab({
+      activeKey: key,
+      closePanel: closePanel
+    }));
+  }
+  /**
    * 渲染顶部默认tab
    */
   renderTabs() {
@@ -72,6 +86,12 @@ class Header extends React.Component {
     return array;
   }
   render() {
+    let cls = 'panel';
+    if (!this.props.closePanel) {
+      cls += ' show';
+    } else {
+      cls = 'panel';
+    }
     return (
       <div className="header">
         <div className="header-top">
