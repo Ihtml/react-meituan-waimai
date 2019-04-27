@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { TABKEY } from '../config';
 
 import { changeTab, getFilterData, changeFilter } from '../actions/headerAction';
+import { getListData } from '../actions/contentListAction';
+
 
 class Header extends React.Component {
   constructor(props) {
@@ -13,6 +15,22 @@ class Header extends React.Component {
   }
   fetchData() {
     this.props.dispatch(getFilterData());
+  }
+  /**
+    * 变化当前点击的item状态 同时发起filter的请求
+    */
+  changeDoFilter(item, key, dataList) {
+    this.revertActive(key, dataList);
+    item.active = true;
+    this.props.dispatch(changeFilter({
+      item,
+      key
+    }));
+
+    this.props.dispatch(getListData({
+      filterData: item,
+      toFirstPage: true
+    }));
   }
   /**
    * 点击切换tab
