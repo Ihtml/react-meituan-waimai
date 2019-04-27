@@ -69,6 +69,54 @@ class Header extends React.Component {
     return array
   }
   /**
+ * 综合排序类目
+ */
+  renderTypeContent() {
+    let typeList = this.props.filterData.sort_type_list || [];
+    return typeList.map((item, index) => {
+      let cls = item.active ? "type-item active" : "type-item";
+
+      return (
+        <li onClick={() => this.changeDoFilter(item, TABKEY.type, typeList)} key={index} className={cls}>
+          {item.name}
+        </li>
+      );
+    })
+  }
+  /**
+   * 全部分类外类目
+   */
+  renderCateContent() {
+    let cateList = this.props.filterData.category_filter_list || [];
+
+    return cateList.map((item, index) => {
+      return (
+        <li key={index} className="cate-item">
+          <p className="item-title">{item.name}<span className="item-count">{item.quantity}</span></p>
+          <div className="item-content clearfix">
+            {/* {this.renderCateInnerContent(item, cateList)} */}
+          </div>
+        </li>
+      )
+    });
+  }
+  /**
+   * 筛选外面类目
+   */
+  renderFilterContent() {
+    let filterList = this.props.filterData.activity_filter_list || [];
+    return filterList.map((item, index) => {
+      return (
+        <li key={index} className="filter-item">
+          <p className="filter-title">{item.group_title}</p>
+          <div className="item-content clearfix">
+            {/* {this.renderFilterInnerContent(item.items, filterList)} */}
+          </div>
+        </li>
+      );
+    })
+  }
+  /**
    * 渲染过滤面板
    */
   renderContent() {
