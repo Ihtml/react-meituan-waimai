@@ -58,6 +58,29 @@
           height: px2rem(16px);
           background-color: #ffd161;
       }
-  }
+    }
+    .item-content {
+      min-height: px2rem(20px);
+    }
+    .cate-box {
+      float: left;
+      width: 33.33%;
+      font-size: px2rem(12px);
+      padding: px2rem(10px);
+      box-sizing: border-box;
+    }
+    .cate-box-inner {
+      border: 1px solid #c4c4c4;
+      text-align: center;
+      color: #666;
+      height: px2rem(37px);
+      line-height: px2rem(37px);
+      position: relative;
+      &.active {
+          background-color: #fffbf1;
+          color: #ffb000;
+          border-color: #ffb000;
+      }
+    }
   }
 }
