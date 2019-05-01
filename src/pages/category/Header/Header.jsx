@@ -17,6 +17,28 @@ class Header extends React.Component {
     this.props.dispatch(getFilterData());
   }
   /**
+   * 重制其他item的active状态
+   */
+  revertActive(key, dataList) {
+    if (key === TABKEY.cate) {
+      for (let i = 0; i < dataList.length; i++) {
+        for (let j = 0; j < dataList[i].sub_category_list.length; j++) {
+          dataList[i].sub_category_list[j].active = false;
+        }
+      }
+    } else if (key === TABKEY.type) {
+      for (let x = 0; x < dataList.length; x++) {
+        dataList[x].active = false;
+      }
+    } else {
+      for (let k = 0; k < dataList.length; k++) {
+        for (let o = 0; o < dataList[k].items.length; o++) {
+          dataList[k].items[o].active = false;
+        }
+      }
+    }
+  }
+  /**
     * 变化当前点击的item状态 同时发起filter的请求
     */
   changeDoFilter(item, key, dataList) {
