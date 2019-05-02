@@ -91,6 +91,24 @@ class Header extends React.Component {
     return array
   }
   /**
+ * 筛选内部的每个类目
+ */
+  renderFilterInnerContent(items, filterList) {
+    return items.map((item, index) => {
+      let cls = item.icon ? 'cate-box-inner has-icon' : 'cate-box-inner';
+      if (item.active) {
+        cls += ' active';
+      }
+      return (
+        <div onClick={() => this.changeDoFilter(item, TABKEY.filter, filterList)} key={index} className="cate-box">
+          <div className={cls}>
+            {item.icon ? <img src={item.icon} /> : null}{item.name}
+          </div>
+        </div>
+      )
+    });
+  }
+  /**
  * 综合排序类目
  */
   renderTypeContent() {
