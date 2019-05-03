@@ -109,6 +109,22 @@ class Header extends React.Component {
     });
   }
   /**
+ * 筛选外面类目
+ */
+  renderFilterContent() {
+    let filterList = this.props.filterData.activity_filter_list || [];
+    return filterList.map((item, index) => {
+      return (
+        <li key={index} className="filter-item">
+          <p className="filter-title">{item.group_title}</p>
+          <div className="item-content clearfix">
+            {this.renderFilterInnerContent(item.items, filterList)}
+          </div>
+        </li>
+      );
+    })
+  }
+  /**
  * 综合排序类目
  */
   renderTypeContent() {
