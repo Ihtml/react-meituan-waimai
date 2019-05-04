@@ -124,6 +124,22 @@ class Header extends React.Component {
     })
   }
   /**
+ * 全部分类里面的每个条目
+ */
+  renderCateInnerContent(items, cateList) {
+
+    return items.sub_category_list.map((item, index) => {
+      let cls = item.active ? 'cate-box-inner active' : 'cate-box-inner';
+      return (
+        <div onClick={() => this.changeDoFilter(item, TABKEY.cate, cateList)} key={index} className="cate-box">
+          <div className={cls}>
+            {item.name}({item.quantity})
+                  </div>
+        </div>
+      )
+    })
+  }
+  /**
    * 全部分类外类目
    */
   renderCateContent() {
@@ -134,7 +150,7 @@ class Header extends React.Component {
         <li key={index} className="cate-item">
           <p className="item-title">{item.name}<span className="item-count">{item.quantity}</span></p>
           <div className="item-content clearfix">
-            {/* {this.renderCateInnerContent(item, cateList)} */}
+            {this.renderCateInnerContent(item, cateList)}
           </div>
         </li>
       )
