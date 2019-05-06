@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import NavHeader from '@/component/NavHeader/NavHeader';
 import Header from '../Header/Header';
+import ContentList from '../ContentList/ContentList';
 
 class Main extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Main extends Component {
       <div className="category">
         <NavHeader title="分类"></NavHeader>
         <Header></Header>
+        <ContentList />
       </div>
     )
   }
