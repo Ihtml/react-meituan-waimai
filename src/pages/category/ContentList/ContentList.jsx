@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import { getListData } from '../actions/contentListAction';
 
 
 class ContentList extends React.Component {
@@ -10,6 +11,10 @@ class ContentList extends React.Component {
     // 请求第一屏数据
     this.fetchData();
 
+  }
+
+  fetchData() {
+    this.props.dispatch(getListData({}))
   }
   render() {
     return (
