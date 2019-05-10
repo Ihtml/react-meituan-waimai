@@ -16,13 +16,26 @@ class ContentList extends React.Component {
   fetchData() {
     this.props.dispatch(getListData({}))
   }
+
+  renderItems() {
+    let list = this.props.list;
+    return list.map((item, index) => {
+      return <ListItem key={index} itemData={item}></ListItem>
+    });
+  }
   render() {
     return (
-      <div>ContentList</div>
+      <div className="list-content">
+        {this.renderItems()}
+      </div>
     )
   }
 }
 
-export default connect(
-  null, null
-)(ContentList);
+const mapState = (state) => ({
+  list: state.contentListReducer.list,
+  page: state.contentListReducer.page,
+  isend: state.contentListReducer.isend,
+})
+
+export default connect(mapState)(ContentList);
