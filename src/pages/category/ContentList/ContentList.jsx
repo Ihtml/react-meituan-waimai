@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+
+import ListItem from '@/component/ListItem/ListItem.jsx';
+import ScrollView from '@/component/ScrollView/ScrollView.jsx';
 import { getListData } from '../actions/contentListAction';
 
 
@@ -12,7 +15,13 @@ class ContentList extends React.Component {
     this.fetchData();
 
   }
+  onLoadPage() {
 
+    // 最多滚动3页3次
+    if (this.props.page <= 3) {
+      this.fetchData();
+    }
+  }
   fetchData() {
     this.props.dispatch(getListData({}))
   }
@@ -26,7 +35,9 @@ class ContentList extends React.Component {
   render() {
     return (
       <div className="list-content">
-        {this.renderItems()}
+        <ScrollView loadCallback={this.onLoadPage.bind(this)} isend={this.props.isend}>
+          {this.renderItems()}
+        </ScrollView>
       </div>
     )
   }
